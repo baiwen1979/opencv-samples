@@ -16,7 +16,8 @@ circles = cv2.HoughCircles(img, cv2.HOUGH_GRADIENT, 1, 120,
 # 转换为整数值
 circles = np.uint16(np.around(circles))
 
-for i in circles[0,:]:
+# 绘制所有检测出的圆
+for i in circles[0, :]:
     # 绘制外部圆
     cv2.circle(planets, (i[0],i[1]), i[2], (0,255,0), 2)
     # 绘制圆心
