@@ -5,7 +5,7 @@ import numpy as np
 # 训练图像的基本路径
 datapath = "images/TrainImages/"
 # 样本个数
-SAMPLES = 400
+SAMPLES = 120
 
 # 函数：以图像类的名称(cls:neg-/pos-)作为前缀，返回第i幅图像的完整路径
 def path(cls, i):
