@@ -5,7 +5,7 @@ import numpy as np
 # 训练图像的基本路径
 datapath = "images/TrainImages/"
 # 样本个数
-SAMPLES = 120
+SAMPLES = 380
 
 # 函数：以图像类的名称(cls:neg-/pos-)作为前缀，返回第i幅图像的完整路径
 def path(cls, i):
@@ -85,10 +85,14 @@ def car_detector():
     for i in range(SAMPLES):
         print i
         # 增加一个正样本，设置标签为1
-        traindata.extend(bow_features(cv2.imread(path(pos, i), 0), extract_bow, detect))
+        bf = bow_features(cv2.imread(path(pos, i), 0), extract_bow, detect)
+        print bf
+        traindata.extend(bf)
         trainlabels.append(1)
         # 增加一个负样本，设置标签为-1
-        traindata.extend(bow_features(cv2.imread(path(neg, i), 0), extract_bow, detect))
+        bf = bow_features(cv2.imread(path(neg, i), 0), extract_bow, detect)
+        print bf
+        traindata.extend(bf)
         trainlabels.append(-1)
 
     # 创建SVM支持向量机进行分类训练

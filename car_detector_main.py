@@ -12,8 +12,8 @@ def in_range(number, test, thresh = 0.2):
     return abs(number - test) < thresh
 
 # 测试图像的路径
-test_image = "images/cars.jpg"
-img_path = "images/test.jpg"
+test_image = "images/test.jpg"
+img_path = "images/car2.jpg"
 
 urllib.urlretrieve(test_image, img_path)
 # 获得训练好的SVM模型和特征提取器
