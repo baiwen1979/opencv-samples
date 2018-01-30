@@ -10,12 +10,12 @@ ann.setLayerSizes(np.array([9, 5, 9], dtype=np.uint8))
 ann.setTrainMethod(cv2.ml.ANN_MLP_BACKPROP)
 # 进行有监督学习（训练）
 ## 样本数据
-samples = np.array([[1.2, 1.3, 1.9, 2.2, 2.3, 2.9, 3.0, 3.2, 3.3]], dtype=np.float32)
+sample = np.array([[1.2, 1.3, 1.9, 2.2, 2.3, 2.9, 3.0, 3.2, 3.3]], dtype=np.float32)
 ## 样本布局
 layout = cv2.ml.ROW_SAMPLE
 ## 对应的分类
 responses = np.array([[0,0,0,0,0,1,0,0,0]], dtype=np.float32)
 # 训练
-ann.train(samples, layout, responses)
+ann.train(sample, layout, responses)
 # 预测
 print ann.predict(np.array([[1.4, 1.5, 1.2, 2., 2.5, 2.8, 3., 3.1, 3.8]], dtype=np.float32))
